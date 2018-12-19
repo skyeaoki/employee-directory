@@ -19,14 +19,14 @@ $.ajax({
 				<li class="address hidden">${user.location.street}<br>${user.location.city}, ${user.location.state} ${user.location.postcode}</li>`;
 			//format birthday
 			const formatBday = () => {
-				let bday = user.dob.toString();
+        let bday = user.dob.date.toString();
 				return bday[5] + bday[6] + '/' + bday[8] + bday[9] + '/' + bday[0] + bday[1] + bday[2] + bday[3];
 			};
 		userInfo +=	`<li class="birthday hidden">Birthday: ${formatBday()}</li>
 			</ul>
 		</div>`;
 	});
-	
+
 	// append the user info to the document
 	$('#main').append(userInfo);
   }
@@ -58,8 +58,8 @@ $(document).on('click', '.user', function(event) {
 	$('#modal-content .current-user').attr('class', 'modal-user');
 	// remove the hidden classes for the additional user information
 	$('#modal-content .hidden').removeClass('hidden');
-	
-	//show the modal 
+
+	//show the modal
 	$modal.show();
 	$modalContent.show();
 });
@@ -72,4 +72,3 @@ $('#close').on('click', function() {
 	$modal.hide();
 	$modalContent.hide();
 });
-
